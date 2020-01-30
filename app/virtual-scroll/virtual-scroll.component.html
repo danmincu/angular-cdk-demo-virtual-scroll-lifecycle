@@ -1,0 +1,13 @@
+<h3> Analysis for the virtual panel and its items life-cycle </h3>
+<ng-container *ngIf="states$ |async as allStates">
+<cdk-virtual-scroll-viewport class="list-container lg" [itemSize]="52" >
+	<div *cdkVirtualFor="let state of allStates;let i = index" class="list-group-item">
+		<app-display-item [state]="state" [id]="i"></app-display-item>
+	</div>
+</cdk-virtual-scroll-viewport>
+
+<div style="padding-top:20px;"> 
+  Total Size: {{allStates.length}}
+</div>
+
+</ng-container>
